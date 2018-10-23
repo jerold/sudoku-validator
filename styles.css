@@ -1,0 +1,23 @@
+svg {
+	width: 50vmin;
+    height: 50vmin;
+    outline: 2px solid black;
+}
+
+line {
+    vector-effect: non-scaling-stroke;
+    stroke: black;
+}
+
+line.minor {
+    stroke-width: 1;
+}
+
+line.major {
+    stroke-width: 2;
+}
+
+text {
+    font-size: 1.3px;
+    fill: black;
+}

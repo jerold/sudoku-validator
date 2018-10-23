@@ -5,10 +5,130 @@
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="sudoku_board">
-        <!-- Build a 9x9 sudoku grid -->
+        <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" width="50vmin" height="50vmin">
+            <!-- vertical lines -->
+
+            <line class="minor" x1="2" y1="0" x2="2" y2="18"></line>
+            <line class="minor" x1="4" y1="0" x2="4" y2="18"></line>
+            <line class="major" x1="6" y1="0" x2="6" y2="18"></line>
+            <line class="minor" x1="8" y1="0" x2="8" y2="18"></line>
+            <line class="minor" x1="10" y1="0" x2="10" y2="18"></line>
+            <line class="major" x1="12" y1="0" x2="12" y2="18"></line>
+            <line class="minor" x1="14" y1="0" x2="14" y2="18"></line>
+            <line class="minor" x1="16" y1="0" x2="16" y2="18"></line>
+
+            <!-- horizontal lines -->
+
+            <line class="minor" x1="0" y1="2" x2="18" y2="2"></line>
+            <line class="minor" x1="0" y1="4" x2="18" y2="4"></line>
+            <line class="major" x1="0" y1="6" x2="18" y2="6"></line>
+            <line class="minor" x1="0" y1="8" x2="18" y2="8"></line>
+            <line class="minor" x1="0" y1="10" x2="18" y2="10"></line>
+            <line class="major" x1="0" y1="12" x2="18" y2="12"></line>
+            <line class="minor" x1="0" y1="14" x2="18" y2="14"></line>
+            <line class="minor" x1="0" y1="16" x2="18" y2="16"></line>
+
+            <!-- text boxes -->
+
+            <text class="r0 c0" x="1" y="1" text-anchor="middle" dy=".5"></text>
+            <text class="r0 c1" x="3" y="1" text-anchor="middle" dy=".5"></text>
+            <text class="r0 c2" x="5" y="1" text-anchor="middle" dy=".5"></text>
+            <text class="r0 c3" x="7" y="1" text-anchor="middle" dy=".5"></text>
+            <text class="r0 c4" x="9" y="1" text-anchor="middle" dy=".5"></text>
+            <text class="r0 c5" x="11" y="1" text-anchor="middle" dy=".5"></text>
+            <text class="r0 c6" x="13" y="1" text-anchor="middle" dy=".5"></text>
+            <text class="r0 c7" x="15" y="1" text-anchor="middle" dy=".5"></text>
+            <text class="r0 c8" x="17" y="1" text-anchor="middle" dy=".5"></text>
+
+            <text class="r1 c0" x="1" y="3" text-anchor="middle" dy=".5"></text>
+            <text class="r1 c1" x="3" y="3" text-anchor="middle" dy=".5"></text>
+            <text class="r1 c2" x="5" y="3" text-anchor="middle" dy=".5"></text>
+            <text class="r1 c3" x="7" y="3" text-anchor="middle" dy=".5"></text>
+            <text class="r1 c4" x="9" y="3" text-anchor="middle" dy=".5"></text>
+            <text class="r1 c5" x="11" y="3" text-anchor="middle" dy=".5"></text>
+            <text class="r1 c6" x="13" y="3" text-anchor="middle" dy=".5"></text>
+            <text class="r1 c7" x="15" y="3" text-anchor="middle" dy=".5"></text>
+            <text class="r1 c8" x="17" y="3" text-anchor="middle" dy=".5"></text>
+
+            <text class="r2 c0" x="1" y="5" text-anchor="middle" dy=".5"></text>
+            <text class="r2 c1" x="3" y="5" text-anchor="middle" dy=".5"></text>
+            <text class="r2 c2" x="5" y="5" text-anchor="middle" dy=".5"></text>
+            <text class="r2 c3" x="7" y="5" text-anchor="middle" dy=".5"></text>
+            <text class="r2 c4" x="9" y="5" text-anchor="middle" dy=".5"></text>
+            <text class="r2 c5" x="11" y="5" text-anchor="middle" dy=".5"></text>
+            <text class="r2 c6" x="13" y="5" text-anchor="middle" dy=".5"></text>
+            <text class="r2 c7" x="15" y="5" text-anchor="middle" dy=".5"></text>
+            <text class="r2 c8" x="17" y="5" text-anchor="middle" dy=".5"></text>
+
+            <!-- new cube row -->
+
+            <text class="r3 c0" x="1" y="7" text-anchor="middle" dy=".5"></text>
+            <text class="r3 c1" x="3" y="7" text-anchor="middle" dy=".5"></text>
+            <text class="r3 c2" x="5" y="7" text-anchor="middle" dy=".5"></text>
+            <text class="r3 c3" x="7" y="7" text-anchor="middle" dy=".5"></text>
+            <text class="r3 c4" x="9" y="7" text-anchor="middle" dy=".5"></text>
+            <text class="r3 c5" x="11" y="7" text-anchor="middle" dy=".5"></text>
+            <text class="r3 c6" x="13" y="7" text-anchor="middle" dy=".5"></text>
+            <text class="r3 c7" x="15" y="7" text-anchor="middle" dy=".5"></text>
+            <text class="r3 c8" x="17" y="7" text-anchor="middle" dy=".5"></text>
+
+            <text class="r4 c0" x="1" y="9" text-anchor="middle" dy=".5"></text>
+            <text class="r4 c1" x="3" y="9" text-anchor="middle" dy=".5"></text>
+            <text class="r4 c2" x="5" y="9" text-anchor="middle" dy=".5"></text>
+            <text class="r4 c3" x="7" y="9" text-anchor="middle" dy=".5"></text>
+            <text class="r4 c4" x="9" y="9" text-anchor="middle" dy=".5"></text>
+            <text class="r4 c5" x="11" y="9" text-anchor="middle" dy=".5"></text>
+            <text class="r4 c6" x="13" y="9" text-anchor="middle" dy=".5"></text>
+            <text class="r4 c7" x="15" y="9" text-anchor="middle" dy=".5"></text>
+            <text class="r4 c8" x="17" y="9" text-anchor="middle" dy=".5"></text>
+
+            <text class="r5 c0" x="1" y="11" text-anchor="middle" dy=".5"></text>
+            <text class="r5 c1" x="3" y="11" text-anchor="middle" dy=".5"></text>
+            <text class="r5 c2" x="5" y="11" text-anchor="middle" dy=".5"></text>
+            <text class="r5 c3" x="7" y="11" text-anchor="middle" dy=".5"></text>
+            <text class="r5 c4" x="9" y="11" text-anchor="middle" dy=".5"></text>
+            <text class="r5 c5" x="11" y="11" text-anchor="middle" dy=".5"></text>
+            <text class="r5 c6" x="13" y="11" text-anchor="middle" dy=".5"></text>
+            <text class="r5 c7" x="15" y="11" text-anchor="middle" dy=".5"></text>
+            <text class="r5 c8" x="17" y="11" text-anchor="middle" dy=".5"></text>
+
+            <!-- new cube row -->
+
+            <text class="r6 c0" x="1" y="13" text-anchor="middle" dy=".5"></text>
+            <text class="r6 c1" x="3" y="13" text-anchor="middle" dy=".5"></text>
+            <text class="r6 c2" x="5" y="13" text-anchor="middle" dy=".5"></text>
+            <text class="r6 c3" x="7" y="13" text-anchor="middle" dy=".5"></text>
+            <text class="r6 c4" x="9" y="13" text-anchor="middle" dy=".5"></text>
+            <text class="r6 c5" x="11" y="13" text-anchor="middle" dy=".5"></text>
+            <text class="r6 c6" x="13" y="13" text-anchor="middle" dy=".5"></text>
+            <text class="r6 c7" x="15" y="13" text-anchor="middle" dy=".5"></text>
+            <text class="r6 c8" x="17" y="13" text-anchor="middle" dy=".5"></text>
+
+            <text class="r7 c0" x="1" y="15" text-anchor="middle" dy=".5"></text>
+            <text class="r7 c1" x="3" y="15" text-anchor="middle" dy=".5"></text>
+            <text class="r7 c2" x="5" y="15" text-anchor="middle" dy=".5"></text>
+            <text class="r7 c3" x="7" y="15" text-anchor="middle" dy=".5"></text>
+            <text class="r7 c4" x="9" y="15" text-anchor="middle" dy=".5"></text>
+            <text class="r7 c5" x="11" y="15" text-anchor="middle" dy=".5"></text>
+            <text class="r7 c6" x="13" y="15" text-anchor="middle" dy=".5"></text>
+            <text class="r7 c7" x="15" y="15" text-anchor="middle" dy=".5"></text>
+            <text class="r7 c8" x="17" y="15" text-anchor="middle" dy=".5"></text>
+
+            <text class="r8 c0" x="1" y="17" text-anchor="middle" dy=".5"></text>
+            <text class="r8 c1" x="3" y="17" text-anchor="middle" dy=".5"></text>
+            <text class="r8 c2" x="5" y="17" text-anchor="middle" dy=".5"></text>
+            <text class="r8 c3" x="7" y="17" text-anchor="middle" dy=".5"></text>
+            <text class="r8 c4" x="9" y="17" text-anchor="middle" dy=".5"></text>
+            <text class="r8 c5" x="11" y="17" text-anchor="middle" dy=".5"></text>
+            <text class="r8 c6" x="13" y="17" text-anchor="middle" dy=".5"></text>
+            <text class="r8 c7" x="15" y="17" text-anchor="middle" dy=".5"></text>
+            <text class="r8 c8" x="17" y="17" text-anchor="middle" dy=".5"></text>
+        </svg>
+
         <button>Validate</button>
     </div>
     <script src="index.js"></script>
